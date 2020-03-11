@@ -1,5 +1,5 @@
 Before execution need to install lib psutil like below:
-pip3 install psutil
+pip3 install -r requirements.txt
 
 usage: ./metrics -cpu, ./metrics -mem
 
