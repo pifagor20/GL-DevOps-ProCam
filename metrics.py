@@ -46,17 +46,16 @@ def get_memory_metrics():
 
 def main():
     description = "The script will print cpu and memory usage information."
-    usage = './metrics -cpu, ./metrics -mem'
+    usage = './metrics cpu, ./metrics mem, ./metrics cpu mem'
     parser = argparse.ArgumentParser(description=description, usage=usage)
-    parser.add_argument('-cpu', action='store_true', help="shows cpu metrics")
-    parser.add_argument('-mem', action='store_true', help="shows mem metrics")
+    parser.add_argument('input', action='store', nargs='*',
+                        help="enter cpu or memory or both pf them to get the metrics")
 
     args = parser.parse_args()
 
-    if args.cpu:
+    if 'cpu' in args.input:
         get_cpu_metrics()
-
-    elif args.mem:
+    if 'mem' in args.input:
         get_memory_metrics()
 
 if __name__ == '__main__':
